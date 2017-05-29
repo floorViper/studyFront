@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test07.html</title>
+	<link rel="stylesheet" href="/css/bootstrap.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<div class="thumbnail">
+				<img src="/images/image1.png"/>
+				<div class="caption">
+					<h3>제시카</h3>
+					<p>어쩌구.. 저쩌구..</p>
+				</div>
+			</div>
+		</div>
+		<button id="moreBtn" class="btn btn-primary">더보기</button>
+	</div>
+	<script src="/js/jquery-1.11.2.js"></script>
+	<script>
+		var currentIndex=0;
+		//더보기 버튼을 눌렀을때 실행할 함수 등록
+	
+		$("#moreBtn").click(function(){
+
+			currentIndex++; //인덱스를 증가 시킨다.
+			//추가 정보를 ajax 요청을 통해서 받아 온다.
+			$.ajax({
+				url:"/ajax/moreInfo",
+				method:"get",
+				data:{index:currentIndex},
+				success:function(data){
+					console.log(typeof(data))
+					$img=$("<img/>").attr("src",data.src);
+					$h3=$("<h3/>").text(data.title);
+					$p=$("<p/>").text(data.content);
+					
+					$caption=$("<div/>")
+					.addClass("caption")
+					.append($h3)
+					.append($p);
+					
+					$("<div/>")	
+					.addClass("thumbnail")
+					.append($img)
+					.append($caption)
+					.appendTo(".wrapper");
+				}
+			});
+			//if(currentIndex==5) currentIndex=0;
+		});
+		//제이슨 키값 문자열??자바스크립트 객체 키는 !차이
+	</script>
+</body>
+</html>

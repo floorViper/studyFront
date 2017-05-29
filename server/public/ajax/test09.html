@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test09.html</title>
+</head>
+<body>
+	<form action="/ajax/login" method="post" id="myForm">
+		<input type="text" name="id" placeholder="아이디" />
+		<input type="password" name="pwd" placeholder="비밀번호"/>
+		<button type="submit">로그인</button>
+	</form>
+	<script src="/js/jquery-1.11.2.js"></script>
+	<script>
+		$("#myForm").on("submit", function(){
+			//요청 url
+			var url = $(this).attr("action");
+			//요청 method 읽어오기
+			var method=$(this).attr("method");
+			//폼에 입력한 내용을 query 문자열로 읽어오기
+			var data=$(this).serialize();
+			console.log(data);
+			//읽어온 정보를 반영해서 ajax 요청하기
+			$.ajax({
+				url:url,
+				method:method,
+				data:data,
+				success:function(data){	
+					alert(data);	
+				}
+			});
+
+			return false;//폼 전송 막기
+		});
+	</script>
+</body>
+</html>

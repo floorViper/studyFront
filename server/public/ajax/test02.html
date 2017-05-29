@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>/ajax/test02.html</title>
+</head>
+<body>
+	<button id="getBtn">1번 회원의 정보 받아오기</button>
+	
+	<script src="/js/jquery-1.11.2.js"></script>
+	<script>
+		$("#getBtn").click(function(){
+			//받아올 회원의 번호
+			var num=1;
+
+			// ajax 요청을 서버에 한다.
+			$.ajax({
+				url:"/ajax/test02",
+				method:"get",
+				data:{num:num},
+				success:function(data){
+					console.log(typeof(data));
+					var obj = JSON.parse(data);
+
+					var num = obj.num;
+					var name = obj.name;
+					var isMan = obj.isMan;
+
+					var str = "번호:"+num+" 이름:"+name+ "남자 여부:"+isMan;
+					$("<p/>").text(str).appendTo('body');
+				}
+			});
+		});
+	</script>
+</body>
+</html>

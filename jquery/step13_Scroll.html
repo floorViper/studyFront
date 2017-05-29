@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step13_Scroll.html</title>
+	<style>
+		.spacer{
+			height: 500px;
+			background-color:  #cecece;
+		}
+		.console{
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		.console p{
+			background-color: #000;
+			color: #fff;
+			font-size: 25px;
+		}
+	</style>
+</head>
+<body>
+<div class="console">
+	<p id="sTop"></p>
+	<p id="wHeight"></p>
+	<div id="dHeight"></div>
+</div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<script src="js/jquery-3.2.0.js"></script>
+<script>
+	//스크롤 이벤트가 일어날때 실행할 함수 등록
+	$(window).on("scroll",function(){
+		console.log("scroll!!");
+
+
+
+		if(isEndOfBottom()){
+			alert("바닥이네?");
+		}
+	})
+
+	function isEndOfBottom(){
+	//scroll top 구하기
+		var scrollTop=$(window).scrollTop();
+		//window height 구하기
+		var windowHeight=$(window).height();
+		//document height 구하기
+		var documentHeight=$(document).height();
+		//바닥 까지 스크롤 되었는지 여부
+		var isBottom=documentHeight <= scrollTop+windowHeight;
+
+		$("#sTop").text(scrollTop);
+		$("#wHeight").text(windowHeight);
+		$("#dHeight").text("documentHeight:"+documentHeight);
+		
+		return isBottom;
+	}
+
+</script>
+</body>
+</html>

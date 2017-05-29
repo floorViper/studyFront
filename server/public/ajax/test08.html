@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>test08.html</title>
+<link rel="stylesheet" href="/css/bootstrap.css"/>
+<style>
+	body{
+		border: 1px solid red;
+	}
+	/* 로딩 이미지 보이지 않도록 */
+	.loader{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		display: none;
+		text-align: center;
+	}
+	.loader img{
+		width: 30px;
+	}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="wrapper">
+		<div class="thumbnail">
+			<img src="/images/image1.png"/>
+			<div class="caption">
+				<h3>제시카</h3>
+				<p>어쩌구.. 저쩌구...</p>
+			</div>
+		</div>
+	</div>
+	<div class="loader">
+		<img src="/images/loader.gif"/>
+	</div>
+</div>
+<script src="/js/jquery-1.11.2.js"></script>
+<script>
+	var currentIndex=0;
+
+	//문서 로딩이 완료 되었을때 호출되는 함수 등록 
+	$(document).ready(function(){
+		var windowHeight=$(window).height();
+		var documentHeight=$(document).height();
+		//문서의 높이가 window 의 높이보다 작으면
+		if(documentHeight <= windowHeight){
+			ajaxRequest();
+		}
+	});
+
+	//스크롤 이벤트가 일어 났을때 실행할 함수 등록 
+	$(window).on("scroll", function(){
+		if(isEndOfBottom()){
+			ajaxRequest();
+		}
+	});
+
+	//ajax 요청해서 문서를 추가 하는 함수 
+	function ajaxRequest(){
+		//로딩 이미지 보이도록
+		$(".loader").show();
+
+		currentIndex++; //인덱스를 증가 시킨다.
+		//추가 정보를 ajax 요청을 통해서 받아 온다.
+		$.ajax({
+			url:"/ajax/moreInfo",
+			method:"get",
+			data:{index:currentIndex},
+			success:function(data){
+
+				//data => {src:"xxx",title:"xxx",content:"xxx"}	
+				
+				var $img=$("<img/>").attr("src", data.src);
+				var $h3=$("<h3/>").text(data.title);
+				var $p=$("<p/>").text(data.content);
+
+				var $caption=$("<div/>")
+				.addClass("caption")
+				.append($h3)
+				.append($p);
+
+				$("<div/>")
+				.addClass("thumbnail")
+				.append($img)
+				.append($caption)
+				.appendTo(".wrapper");
+
+				//응답이 오면 로딩 이미지를 숨기게
+				$(".loader").hide();
+			}
+		});
+	}
+
+	//바닥까지 스클롤했는지 여부를 리턴해주는 함수 
+	function isEndOfBottom(){
+		//scroll top 구하기
+		var scrollTop=$(window).scrollTop();
+		//window height 구하기
+		var windowHeight=$(window).height();
+		//document height 구하기
+		var documentHeight=$(document).height();
+		//바닥 까지 스크롤 되었는지 여부
+		var isBottom=documentHeight <= scrollTop+windowHeight;
+		return isBottom;		
+	}
+</script>	
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wellcome Viper production Home</title>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/main.css"/>
+<style>
+/*body{
+	border: 1px solid red;
+}
+.container .row{
+	border: 3px solid green;
+}*/
+.slideshow *{
+	height:100%;
+	/*border: 3px solid black;*/
+}
+#fullscreen{
+	position: relative;	
+	z-index:1;	
+	width:100%;
+	/*margin-left:200px;*/
+	overflow:hidden;
+}
+#fullscreen > .container{
+	position: absolute;
+	top:0;
+	left:0;
+	z-index:99;
+}
+#fullscreen > .container, #fullscreen > .container > .row{
+	
+	/*height : 100%;*/
+	/*margin: 0 auto;*/
+}
+.slideshow{}
+html, body {
+	font-family: "Times New Roman", Times, serif;
+	-webkit-font-smoothing: antialiased !important;
+}
+#leftMenu{
+	width: 230px;
+	height: 700px;
+	/*background-color: yellow;*/
+	position: absolute;
+	top: 0;
+	left: -230px;
+}
+
+
+
+</style>
+</head>
+<body style="background-color: #161616">
+<div id="wrapper">
+	<div id="fullscreen">
+	    <ul class="slideshow">
+	    	<li><img src="./img/battle.jpg" alt="슬라이드 이미지"/></li>
+	    	<li><img src="./img/de.jpg" alt="슬라이드 이미지"/></li>
+	    	<li><img src="./img/web.jpg" alt="슬라이드 이미지"/></li>
+	    </ul> 
+	    <!--container-->
+	    <div id="home" class="container" style="width:100%; height:100%" >
+	    	
+	   		<div class="row">
+	   			<div id="left" class="col-xs-12 col-sm-12 col-md-12">
+	   				<div id="menu" class="fa fa-bars fa-2x" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body"></div>   				
+		   			<div id="page-detail" class="text-center">
+						<!--slide-->
+	   					<div id="homeslider" class="carousel slide" data-ride="carousel" data-interval="2000">
+	   						<div class="carousel-inner" role="listbox">
+	   							<div class="item active" >
+	   							<img style="display:none">
+	   								<div class="caroulsel-caption">
+	   									<h4>WEB DEVELOPER</h4><hr>
+	   									<h1>FOR YOUR <br>BUSINESS <br>SUPPORT</h1><hr>
+	   								</div>
+	   							</div>
+	   							<div class="item">
+	   								<img style="display:none">
+	   								<div class="caroulsel-caption">
+	   									<h4>DESIGN</h4><hr>
+	   									<h1>Brand Logo& <br> Service Design<br>consulting</h1><hr>
+	   								</div>
+	   							</div>
+	   							<div class="item">
+	   								<img style="display:none">
+	   								<div class="caroulsel-caption">
+	   									<h4>I'm B-BOY</h4><hr>
+	   									<h1>BATTLE & PARTY <br> EVENT  GUEST <br>SHOW</h1><hr>
+	   								</div>
+	   							</div>
+	   						</div>
+	   					</div>
+						<!--end slide-->
+		   				<div class="space"></div>
+		   				<ul class="tags">
+		   					<li><a href="#">WEB DEVELOP</a></li>
+		   					<li><a href="#">DESIGN</a></li>
+		   					<li><a href="#">B-BOY</a></li>
+		   				</ul>
+		   				<div class="space"></div>
+		   				<h6>Share This:</h6>
+		   				<ul class="social-links">
+		   					<li><a href="#"><i class="fa fa-facebook-official"></i></a>
+		   					</li>
+		   					
+		   				</ul>
+		   			</div>
+		   			<!--pageDetail-->
+		   		</div>
+	   		</div>
+	    </div>
+	    <!--end container-->
+	    <nav id="footer-nav" class="nav-barn avbar-deafault navbar-fixed-bottom" role="navigation">
+		    <div class="container" style="padding-bottom: 40px;">
+			    <div class="pull-right text-right controls">
+			    	<a href="#homeslider" role="button" data-slide="prev">
+			    		<span class="fa fa-arrow-left"></span>
+			    	</a>		    			
+			    	<a href="#homeslider" role="button" data-slide="next">
+			    		<span class="fa fa-arrow-right"></span>	
+			    	</a>
+			    		
+			    </div>
+		    </div>
+		</nav> 
+	</div>
+	<div id="leftMenu">
+		<div class="list-group">
+		  <a href="/index.html" class="list-group-item">	    
+		    <h1 class="list-group-item-heading">viper</h1><br>
+		    <h2>produntion</h2><br>
+		    <p class="list-group-item-text">studio</p>
+		  </a>
+		  <a href="#" class="list-group-item  disabled myTooltip" title="준비중...." data-placement="right">
+		    <h4 class="list-group-item-heading">WEB PROJECT</h4>
+		    <p class="list-group-item-text">portfolio</p>
+		  </a>
+		  <a href="#" class="list-group-item  disabled myTooltip" title="준비중...." data-placement="right">
+		    <h4 class="list-group-item-heading">design</h4>
+		    <p class="list-group-item-text">portfolio</p>
+		  </a>
+		  <a href="#" class="list-group-item bboy">
+		    <h4 class="list-group-item-heading">E.K.F.E Breakin Boyz</h4>
+		    <p class="list-group-item-text">video</p>
+		  </a>
+		  <a href="#" class="list-group-item">
+		    <h4 class="list-group-item-heading">퍼블리싱</h4>
+		    <p class="list-group-item-text">못하겠다</p>
+		  </a>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src=" ./js/jquery-3.2.0.js"></script>
+<script src="./js/bootstrap.js"></script>	
+<script type="text/javascript" src="./js/jquery.FadeWideBgImg.js"></script>
+<script type="text/javascript">
+	//배경 슬라이드
+	(function($){
+	jQuery(document).ready(function(){
+		$('.slideshow').FadeWideBgImg({interval:2000});
+	});
+	}(window.jQuery,window));
+	//소셜 에니메이션
+	$(".social-links").mouseover(function(){
+		// animated 와 swing 클래스를 추가한다. 
+		$(this)
+		.addClass("animated rubberBand")
+		.one("animationend", function(){
+			$(this).removeClass("animated rubberBand");
+		});
+	});
+	// div 가 보이는지 여부를 관리할 변수 만들고 false 로 초기화 
+	var isVisible=false;
+
+	//버튼을 눌렀을때 실행할 함수 등록 
+	$("#menu").on("click", function(){
+
+		if(isVisible){//메뉴가 보이는 상태일때
+			//메뉴를 숨겨야 한다.
+			$("#leftMenu").animate({
+				left: "-=230px"
+			}, 200);
+			$("#fullscreen").animate({
+				left: "-=230px"
+			}, 200);
+			//상태값을 바꿔준다. 
+			isVisible=false;
+		}else{//메뉴가 숨겨진 상태일때 
+			//메뉴를 보이게 한다. 
+			$("#leftMenu").animate({
+				left: "+=230px"
+			}, 600);
+			$("#fullscreen").animate({
+				left: "+=230px"
+			}, 600);
+			//상태값을 바꿔준다. 
+			isVisible=true;
+		}
+	});
+
+	$(".bboy").click(function(){
+		
+		$("#fullscreen").load("video.html")
+	})
+	$(".myTooltip").tooltip();	
+
+</script>
+</body>
+</html>
